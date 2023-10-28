@@ -151,8 +151,23 @@ async function loadAndPredict(inputTensor, domComment) {
 	var results = await model.predict(inputTensor);
 
 	// Print the result to the console for us to inspect.
+	/*
+	GitHub Copilot: In the given code, the `model.predict` function returns a tensor 
+	that contains the result of the prediction made by the model. The `results` tensor 
+	is then printed to the console using the `print()` method. 
+	However, the `print()` method only displays the tensor's shape and data type, 
+	but not its actual values. To extract the actual values of the `results` tensor, 
+	the `data()` method is used. The `data()` method returns a promise that resolves to 
+	a typed array containing the tensor's values. 
+    In the given code, the `dataArray` variable is assigned the result of calling `data()` 
+	on the `results` tensor. The `dataArray` is then used to check if the second element 
+	of the array is greater than the `SPAM_THRESHOLD` value. Therefore, the `data()` method 
+	is used to extract the actual values of the `results` tensor so that they can be used in further computations or comparisons.
+	*/
 	results.print();
-
+	// tf.data() : Asynchronously downloads the values from the tf.Tensor.
+	// Returns a promise of TypedArray that resolves when the computation has finished.
+	// https://js.tensorflow.org/api/latest/#tf.Tensor.data
 	results.data().then((dataArray) => {
 		if (dataArray[1] > SPAM_THRESHOLD) {
 			domComment.classList.add('spam');

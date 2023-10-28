@@ -121,8 +121,8 @@ function handleCommentPost() {
 POST_COMMENT_BTN.addEventListener('click', handleCommentPost);
 
 // Set the URL below to the path of the model.json file you uploaded.
-const MODEL_JSON_URL =
-	'https://cdn.glitch.global/37021009-b771-48a8-aa02-42728a3ad364/model.json?v=1689908989460';
+const MODEL_JSON_URL = './model.json'; // Enter 'model.json' here.
+//	'https://cdn.glitch.global/37021009-b771-48a8-aa02-42728a3ad364/model.json?v=1689908989460';
 //const MODEL_JSON_URL = './model.json';
 // Set the minimum confidence for spam comments to be flagged.
 // Remember this is a number from 0 to 1, representing a percentage

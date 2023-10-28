@@ -50,6 +50,8 @@ io.on('connect', (socket) => {
 });
 
 // Start the web server.
+// If port is omitted or is 0, the operating system will assign an arbitrary unused port.
+// https://expressjs.com/en/api.html#app.listen
 const listener = server.listen(process.env.PORT, () => {
 	console.log('Your app is listening on port ' + listener.address().port);
 });
